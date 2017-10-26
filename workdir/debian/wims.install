@@ -1,0 +1,12 @@
+bin            opt/wims/
+download       opt/wims/
+lib            opt/wims/
+localwims      opt/wims/
+log            opt/wims/
+other          opt/wims/
+public_html    opt/wims/
+s2             opt/wims/
+sessions       opt/wims/
+tmp            opt/wims/
+update.sh      opt/wims/
+version        opt/wims/

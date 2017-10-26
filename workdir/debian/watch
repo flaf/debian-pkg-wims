@@ -1,0 +1,5 @@
+version=3
+
+opts=filenamemangle=s/^(.*)\.tgz$/archive.tar.gz/ \
+    https://sourcesup.renater.fr/frs/?group_id=379 ^.*/frs/download.php/file/[0-9]*/wims-([1-9][.0-9]*[a-z]*).tgz$
+

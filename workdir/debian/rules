@@ -1,0 +1,35 @@
+#!/usr/bin/make -f
+
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+# The absolute path of this present "rules" file.
+RULES_PATH := $(realpath $(firstword $(MAKEFILE_LIST)))
+
+# The working directory is obtained by removing the
+# "/debian/rules" string at the end of RULES_PATH.
+BUILD_DIR := $(realpath $(RULES_PATH:/debian/rules=))
+
+
+%:
+	dh $@
+
+# Yes, it's ugly, all is made in this target:
+#
+#   - downloads,
+#   - configure,
+#   - and compilation.
+#
+# But I want to stick to the upstream version, and the
+# upstream version uses the ./compile script.
+override_dh_auto_configure:
+	cd "$(BUILD_DIR)" && ./compile --mathjax --jmol --geogebra --swac
+# bin/true and bin/false in Wims don't work.
+	cd "$(BUILD_DIR)" && rm -f bin/true bin/false
+	cd "$(BUILD_DIR)" && cp /bin/true bin/
+	cd "$(BUILD_DIR)" && cp /bin/false bin/
+# I don't know why, there is a __MACOSX/ directory in tmp/.
+	cd "$(BUILD_DIR)" && rm -rf tmp/__MACOSX/
+
+

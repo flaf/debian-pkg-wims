@@ -1,0 +1,24 @@
+Index: workdir/compile
+===================================================================
+--- workdir.orig/compile
++++ workdir/compile
+@@ -1,12 +1,12 @@
+ #! /bin/sh
+ 
+-if [ "$(id -ru)" = 0 ]; then
+- cat <<@
+-You are trying to compile WIMS as 'root'. You should not do that !
+-Please compile as 'wims'.
+-@
+- exit 1
+-fi
++#if [ "$(id -ru)" = 0 ]; then
++# cat <<@
++#You are trying to compile WIMS as 'root'. You should not do that !
++#Please compile as 'wims'.
++#@
++# exit 1
++#fi
+ 
+ option=$1
+ 

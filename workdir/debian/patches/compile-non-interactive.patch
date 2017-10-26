@@ -1,0 +1,124 @@
+Index: workdir/compile
+===================================================================
+--- workdir.orig/compile
++++ workdir/compile
+@@ -148,62 +148,62 @@ if [ -f ../.wims_maintainer_mode ]; then
+ fi
+ cd ..
+ 
+-if [ -f log/wims.conf ]; then :; else
+-  if (echo | mail -r wims testuser@localhost 2>/dev/null); then
+-    echo "mailback_opt=-r" >> log/wims.conf;
+-    chmod 600 log/wims.conf
+-  fi
+-  cat <<@
+-
+-You can configure some parameters which allow the manager site
+-to make more configuration from the web interface.
+-
+-Please write the IP address of the wims webmaster ? [127.0.0.1]
+-@
+-  read ans1
+-  if [ -z $ans1 ]; then :; else
+-    echo "manager_site=$ans1" >> log/wims.conf
+-    chmod 600 log/wims.conf
+-  fi
+-  cat <<@
+-
+-Please write the email address of the wims webmaster: ? []
+-@
+-  read ans2
+-  if [ -z $ans2 ]; then
+-     if [ -z $ans1 ]; then :; else echo "site_manager=" >> log/wims.conf; fi
+-  else
+-     if [ -z $ans1 ]; then echo "manager_site=127.0.0.1" >> log/wims.conf ; fi
+-     echo "site_manager=$ans2" >> log/wims.conf
+-     chmod 600 log/wims.conf
+-  fi
+-fi
+-if [ -f log/.wimspass ]; then :; else
+-  cat <<@
+-
+-Please give the password for the wims webmaster
+-You can change it in the file log/.wimspass
+-Webmaster password: ? []
+-@
+-  read ans3
+-  if [ -z $ans3 ]; then :; else
+-    echo "$ans3" > log/.wimspass
+-    chmod 600 log/.wimspass
+-  fi
+-fi
+-if [ $option = "--build-chroot" ] ; then
+-  script=wrapuid ;
+-else
+- script=setwrapexec ;
+-fi
+-
+-cat <<@
+-
+-Please run './bin/$script' (and './bin/apache-config' for the first installation) as root
+-(e.g. using sudo) to finish WIMS setup.
+-
+-See README about installation of help and teaching modules.
+-
+-@
++#if [ -f log/wims.conf ]; then :; else
++#  if (echo | mail -r wims testuser@localhost 2>/dev/null); then
++#    echo "mailback_opt=-r" >> log/wims.conf;
++#    chmod 600 log/wims.conf
++#  fi
++#  cat <<@
++#
++#You can configure some parameters which allow the manager site
++#to make more configuration from the web interface.
++#
++#Please write the IP address of the wims webmaster ? [127.0.0.1]
++#@
++#  read ans1
++#  if [ -z $ans1 ]; then :; else
++#    echo "manager_site=$ans1" >> log/wims.conf
++#    chmod 600 log/wims.conf
++#  fi
++#  cat <<@
++#
++#Please write the email address of the wims webmaster: ? []
++#@
++#  read ans2
++#  if [ -z $ans2 ]; then
++#     if [ -z $ans1 ]; then :; else echo "site_manager=" >> log/wims.conf; fi
++#  else
++#     if [ -z $ans1 ]; then echo "manager_site=127.0.0.1" >> log/wims.conf ; fi
++#     echo "site_manager=$ans2" >> log/wims.conf
++#     chmod 600 log/wims.conf
++#  fi
++#fi
++#if [ -f log/.wimspass ]; then :; else
++#  cat <<@
++#
++#Please give the password for the wims webmaster
++#You can change it in the file log/.wimspass
++#Webmaster password: ? []
++#@
++#  read ans3
++#  if [ -z $ans3 ]; then :; else
++#    echo "$ans3" > log/.wimspass
++#    chmod 600 log/.wimspass
++#  fi
++#fi
++#if [ $option = "--build-chroot" ] ; then
++#  script=wrapuid ;
++#else
++# script=setwrapexec ;
++#fi
++#
++#cat <<@
++#
++#Please run './bin/$script' (and './bin/apache-config' for the first installation) as root
++#(e.g. using sudo) to finish WIMS setup.
++#
++#See README about installation of help and teaching modules.
++#
++#@
+ 
+ exit
