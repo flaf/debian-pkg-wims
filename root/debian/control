@@ -1,0 +1,22 @@
+Source: wims
+Section: web
+Priority: optional
+Maintainer: François Lafont <francois.lafont@ac-versailles.fr>
+Build-Depends: debhelper (>= 9), install, make, g++, texlive-base,
+ gnuplot, pari-gp, units-filter, flex, bison, perl, liburi-perl,
+ imagemagick, libgd2-xpm-dev, wget, lsb-release, libgd2-xpm-dev,
+ autoconf, ant, subversion, openjdk-8-jdk
+Standards-Version: 3.9.8
+Homepage: https://sourcesup.renater.fr/frs/?group_id=379
+
+Package: wims
+Architecture: any
+Pre-Depends: adduser
+Depends: ${shlibs:Depends}, ${misc:Depends}, yacas, gap, maxima, octave,
+ graphviz, ldap-utils, scilab-cli, libwebservice-validator-html-w3c-perl,
+ qrencode, fortune, unzip, libgmp-dev, openbabel, maxima-share, povray,
+ apache2
+Description: Server for educational content: courses, exercises, and exams
+ The WWW Interactive Multipurpose Server (Wims) is an educational platform
+ originally developed for mathematics but now also supporting subjects such
+ as physics, chemistry, biology, and languages.

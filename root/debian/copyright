@@ -1,0 +1,40 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: wims
+Source: https://sourcesup.renater.fr/frs/?group_id=379
+
+Files: *
+Copyright: 1998-2008 Gang Xiao <xiao@unice.fr>
+    2007-2012 Bernadette Perrin-Riou <Bernadette.Perrin-Riou@math.u-psud.fr>
+    2007-2012 Eric Reyssat <eric.reyssat@math.unicaen.fr>
+    2007-2012 Fabrice Guerimand <fguerima@free.fr>
+    2007-2012 Georges Khaznadar <georgesk@ofset.org>
+    2007-2012 Joke Evers <jm.evers@schaersvoorde.nl>
+    2007-2012 Manel Querol <mquerol@xtec.cat>
+    2007-2012 Marina Cazzola <marina.cazzola@unimib.it>
+    2007-2012 Olivier Bado <bado@unice.fr>
+License: GPL-3
+
+Files: debian/*
+Copyright: 2017 François Lafont <francois.lafont@ac-versailles.fr>
+License: GPL-3
+
+Files: flaf-auto/*
+Copyright: 2017 François Lafont <francois.lafont@ac-versailles.fr>
+License: GPL-3
+
+License: GPL-3
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <https://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
