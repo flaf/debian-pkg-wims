@@ -20,4 +20,18 @@ cd debian-pkg-wims
 ./make install-env
 ```
 
+## Build the package
+
+At the root of this Git repository, you can launch:
+
+```sh
+./make build && echo 'Build is OK!'
+ls -l *.deb
+```
+
+Normally, there is a package `wims-dbgsym_x.y-n_amd64.deb`
+too. If I have well understood, it's a feature of Debian to
+have (automatically) a package for debug. Personally, I just
+ignore this package and I use ``wims_x.y-n_amd64.deb.
+
 
