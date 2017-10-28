@@ -1,3 +1,9 @@
+wims (2:4.15b-2) unstable; urgency=medium
+
+  * Add a smart handle of apache2 during upgrade.
+
+ -- François Lafont <francois.lafont@ac-versailles.fr>  Sat, 28 Oct 2017 12:19:57 +0200
+
 wims (2:4.15b-1) unstable; urgency=medium
 
   * Initial release.
