@@ -92,7 +92,39 @@ EOF
         a2dismod cgi
         # Apache2 says "Your MPM seems to be threaded. Selecting cgid instead of cgi".
         a2enmod cgid
-        service apache2 stop && sleep 1 && service apache2 start && echo 'Apache2 restarted.'
+
+        if systemctl is-enabled apache2 >/dev/null 2>&1
+        then
+            if invoke-rc.d apache2 status >/dev/null 2>&
+            then
+                # The service apache2 is enabled and up.
+                # In this case, it is managed by the package.
+                { echo -n 'Attempt to stop Apache2... ' && invoke-rc.d apache2 stop; } || true
+                if invoke-rc.d apache2 status > /dev/null 2>&1
+                then
+                    echo 'Problem, Apache2 is not stopped.'
+                    echo 'Warning, you will have to restart Apache2 yourself manually.'
+                else
+                    echo 'Apache2 is well stopped.'
+                    sleep 1
+                    { echo -n 'Attempt to start Apache2... ' && invoke-rc.d apache2 start; } || true
+                    if invoke-rc.d apache2 status > /dev/null 2>&1
+                    then
+                        echo 'Apache2 is well started.'
+                    else
+                        echo 'Problem, Apache2 is not started.'
+                        echo 'You will have to handle this problem yourself.'
+                    fi
+                fi
+            else
+                # The service apache2 is enabled but currently down.
+                echo 'Warning, the service apache2 is enabled but currently down.'
+                echo "So it won't be managed by the wims package."
+            fi
+        else
+            # The service apache2 is not enabled.
+            echo "Warning, the service apache2 is not enabled, so it won't be managed by the wims package."
+        fi
 
     ;;
 
