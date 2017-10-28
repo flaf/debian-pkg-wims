@@ -95,7 +95,7 @@ EOF
 
         if systemctl is-enabled apache2 >/dev/null 2>&1
         then
-            if invoke-rc.d apache2 status >/dev/null 2>&
+            if invoke-rc.d apache2 status >/dev/null 2>&1
             then
                 # The service apache2 is enabled and up.
                 # In this case, it is managed by the package.
