@@ -35,3 +35,9 @@ have (automatically) a package for debug. Personally, I just
 ignore this package and I use ``wims_x.y-n_amd64.deb.
 
 
+## TODO
+
+* In the package, set the default page of Apache of redirect
+  automatically to the URI `/wims`.
+
+
