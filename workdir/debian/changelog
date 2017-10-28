@@ -1,4 +1,4 @@
-wims (2:4.15b-2) unstable; urgency=medium
+wims (2:4.15b-3) unstable; urgency=medium
 
   * Add a smart handle of apache2 during upgrade.
 
