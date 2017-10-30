@@ -21,8 +21,16 @@ BUILD_DIR := $(realpath $(RULES_PATH:/debian/rules=))
 #   - configure,
 #   - and compilation.
 #
-# But I want to stick to the upstream version, and the
-# upstream version uses the ./compile script.
+# But I want to stick to the upstream version and the
+# upstream version uses the ./compile script. Furthermore, I
+# want to do something:
+#
+#   1. Simple and fast, no time to make a fully
+#      "Debian-policy-compatible" package with the
+#      greatest of care.
+#
+#   2. Easy to maintain.
+#
 override_dh_auto_configure:
 	cd "$(BUILD_DIR)" && ./compile --mathjax --jmol --geogebra --swac
 # bin/true and bin/false in Wims don't work.
