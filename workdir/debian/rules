@@ -26,8 +26,8 @@ BUILD_DIR := $(realpath $(RULES_PATH:/debian/rules=))
 # want to do something:
 #
 #   1. Simple and fast, no time to make a fully
-#      "Debian-policy-compatible" package with the
-#      greatest of care.
+#      "Debian-policy-compatible" package with lots
+#      of ponies.
 #
 #   2. Easy to maintain.
 #
