@@ -1,3 +1,9 @@
+wims (2:4.15b-4) unstable; urgency=medium
+
+  * Add the dependency pari-gp2c
+
+ -- François Lafont <francois.lafont@ac-versailles.fr>  Wed, 29 Nov 2017 04:23:37 +0100
+
 wims (2:4.15b-3) unstable; urgency=medium
 
   * Add a smart handle of apache2 during upgrade.
