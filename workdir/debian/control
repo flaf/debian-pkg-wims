@@ -14,7 +14,8 @@ Architecture: any
 Pre-Depends: adduser, apache2
 Depends: ${shlibs:Depends}, ${misc:Depends}, yacas, gap, maxima, octave,
  graphviz, ldap-utils, scilab-cli, libwebservice-validator-html-w3c-perl,
- qrencode, fortune, unzip, libgmp-dev, openbabel, maxima-share, povray
+ qrencode, fortune, unzip, libgmp-dev, openbabel, maxima-share, povray,
+ pari-gp2c
 Description: Server for educational content: courses, exercises, and exams
  The WWW Interactive Multipurpose Server (Wims) is an educational platform
  originally developed for mathematics but now also supporting subjects such
