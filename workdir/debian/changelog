@@ -1,4 +1,4 @@
-wims (2:4.15b-11) unstable; urgency=medium
+wims (2:4.15b-12) unstable; urgency=medium
 
   * Add some packages as dependencies (for instance texlive-binaries etc).
   * Improve the upgrade process with a stop/start of Apache2.
