@@ -54,6 +54,12 @@ case "$1" in
         chmod '0700' /opt/wims/public_html/modules/home
         chmod '0700' /opt/wims/public_html/modules/adm
 
+        # All files in /opt/wims/public_html/bin/ must be
+        # executable. Normally, it's the case except for the
+        # file "tex..gif", I don't know why.
+        find /opt/wims/public_html/bin/ -mindepth 1 -maxdepth 1 -type f \
+            -exe chmod a+x '{}' '+'
+
         # "rwsr-sr-x" is required for this file.
         chmod '6755' /opt/wims/public_html/wims
 
@@ -118,8 +124,8 @@ EOF
                 fi
             else
                 # The service apache2 is enabled but currently down.
-                echo 'Warning, the service apache2 is enabled but currently down.'
-                echo "So it won't be managed by the wims package."
+                echo 'The service apache2 is enabled but currently down.'
+                { echo -n 'Attempt to start Apache2... ' && invoke-rc.d apache2 start; } || true
             fi
         else
             # The service apache2 is not enabled.
