@@ -1,3 +1,9 @@
+wims (2:4.15b-5) unstable; urgency=medium
+
+  * Add some packages as dependencies (for instance texlive-binaries etc).
+
+ -- François Lafont <francois.lafont@ac-versailles.fr>  Fri, 08 Dec 2017 02:44:25 +0100
+
 wims (2:4.15b-4) unstable; urgency=medium
 
   * Add the dependency pari-gp2c
