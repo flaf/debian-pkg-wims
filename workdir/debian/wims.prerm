@@ -20,7 +20,7 @@ set -e
 case "$1" in
     remove|upgrade|deconfigure)
         (cd /opt/wims/ && ./bin/server-interrupt)
-        { echo -n 'Attempt to stop Apache2 before the upgrade...' \
+        { echo 'Attempt to stop Apache2 before the upgrade...' \
             && invoke-rc.d apache2 stop; } || true
         sleep 1
         # A new file /opt/wims/bin/wimslogd will be created via

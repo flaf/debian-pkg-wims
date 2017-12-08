@@ -113,7 +113,7 @@ EOF
                 else
                     echo 'Apache2 is well stopped.'
                     sleep 1
-                    { echo -n 'Attempt to start Apache2... ' && invoke-rc.d apache2 start; } || true
+                    { echo 'Attempt to start Apache2... ' && invoke-rc.d apache2 start; } || true
                     if invoke-rc.d apache2 status > /dev/null 2>&1
                     then
                         echo 'Apache2 is well started.'
