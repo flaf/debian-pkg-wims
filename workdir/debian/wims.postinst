@@ -58,7 +58,7 @@ case "$1" in
         # executable. Normally, it's the case except for the
         # file "tex..gif", I don't know why.
         find /opt/wims/public_html/bin/ -mindepth 1 -maxdepth 1 -type f \
-            -exe chmod a+x '{}' '+'
+            -exec chmod a+x '{}' '+'
 
         # "rwsr-sr-x" is required for this file.
         chmod '6755' /opt/wims/public_html/wims
