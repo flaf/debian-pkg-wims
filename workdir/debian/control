@@ -12,10 +12,13 @@ Homepage: https://sourcesup.renater.fr/frs/?group_id=379
 Package: wims
 Architecture: any
 Pre-Depends: adduser, apache2
-Depends: ${shlibs:Depends}, ${misc:Depends}, yacas, gap, maxima, octave,
- graphviz, ldap-utils, scilab-cli, libwebservice-validator-html-w3c-perl,
- qrencode, fortune, unzip, libgmp-dev, openbabel, maxima-share, povray,
- pari-gp2c
+Depends: ${shlibs:Depends}, ${misc:Depends}, yacas, gap,
+ maxima, maxima-share, octave, graphviz, ldap-utils, scilab-cli,
+ libwebservice-validator-html-w3c-perl, qrencode, fortune, unzip,
+ libgmp-dev, openbabel, povray, pari-gp2c, pari-gp, gnuplot,
+ texlive-base, texlive-latex-base, texlive-fonts-recommended,
+ chemeq, libjs-prototype, libjs-mootools, libjs-edit-area,
+ libjs-jquery, libjs-jquery-metadata, libjs-asciimathml
 Description: Server for educational content: courses, exercises, and exams
  The WWW Interactive Multipurpose Server (Wims) is an educational platform
  originally developed for mathematics but now also supporting subjects such
