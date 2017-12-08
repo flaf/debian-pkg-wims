@@ -19,9 +19,9 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-        (cd /opt/wims/ && ./bin/server-interrupt)
         { echo 'Attempt to stop Apache2 before the upgrade...' \
             && invoke-rc.d apache2 stop; } || true
+        pkill -u wims || true
         sleep 1
         # A new file /opt/wims/bin/wimslogd will be created via
         # the file /opt/wims/tmp/log/wimslogd.new. I don't know
