@@ -105,7 +105,7 @@ EOF
             then
                 # The service apache2 is enabled and up.
                 # In this case, it is managed by the package.
-                { echo -n 'Attempt to stop Apache2... ' && invoke-rc.d apache2 stop; } || true
+                { echo 'Attempt to stop Apache2... ' && invoke-rc.d apache2 stop; } || true
                 if invoke-rc.d apache2 status > /dev/null 2>&1
                 then
                     echo 'Problem, Apache2 is not stopped.'
@@ -125,7 +125,7 @@ EOF
             else
                 # The service apache2 is enabled but currently down.
                 echo 'The service apache2 is enabled but currently down.'
-                { echo -n 'Attempt to start Apache2... ' && invoke-rc.d apache2 start; } || true
+                { echo 'Attempt to start Apache2... ' && invoke-rc.d apache2 start; } || true
             fi
         else
             # The service apache2 is not enabled.
