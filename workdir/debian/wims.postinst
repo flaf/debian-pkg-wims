@@ -65,6 +65,9 @@ case "$1" in
 
         (cd /opt/wims && ./bin/setwrapexec)
         (cd /opt/wims && ./bin/setwimsd)
+        echo ============ bin/mkindex is triggered ============
+        (cd /opt/wims && sudo -u wims ./bin/mkindex || true
+        echo =================== end ==========================
 
         # Apache configuration.
         cat > /etc/apache2/conf-available/wims.conf <<'EOF'
