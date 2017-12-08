@@ -11,7 +11,7 @@ Homepage: https://sourcesup.renater.fr/frs/?group_id=379
 
 Package: wims
 Architecture: any
-Pre-Depends: adduser, apache2, procps
+Pre-Depends: adduser, apache2, procps, sudo
 Depends: ${shlibs:Depends}, ${misc:Depends}, yacas, gap,
  maxima, maxima-share, octave, graphviz, ldap-utils, scilab-cli,
  libwebservice-validator-html-w3c-perl, qrencode, fortune, unzip,
