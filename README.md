@@ -71,60 +71,74 @@ apt-get update && apt-get install wims
 Now, Wims is installed and you should be able to visit the
 page `http://IP-OF-YOUR-SERVER/wims/`.
 
+
 If you want to automatically redirect the path `/` to
-`/wims/`, you can add the file
-`/etc/apache2/conf-available/wims-custom.conf` with this
-content:
+`/wims/` (it's probably a good idea), you can add the file
+`/etc/apache2/sites-available/wims.conf` with this content:
 
 ```apache
-RedirectMatch permanent ^/$ /wims/
+<VirtualHost *:80>
+    RedirectMatch permanent ^/$ /wims/
+</VirtualHost>
 ```
 
-Then to activate the configuration:
+Then, to activate the configuration:
 
 ```sh
 # Commands launched as root.
 
-a2enconf wims-custom
+a2ensite wims.conf
 service apache2 restart
 ```
 
-If you want to enable SSL, then you can edit the file
-`/etc/apache2/conf-available/wims-custom.conf` like this :
+But if you want to enable SSL, then you can edit the file
+`/etc/apache2/sites-available/wims.conf` like this:
 
 ```apache
-RedirectMatch permanent ^/$ /wims/
+<VirtualHost *:80>
+    # Redirecton HTTP to HTTPS.
+    #
+    # With SSL, you have to know the FQDN of your wims
+    # server and you have to replace `FQDN-OF-YOUR-SERVER`
+    # by the correct value.
+    Redirect permanent / https://FQDN-OF-YOUR-SERVER/wims/
+</VirtualHost>
+
 
 <IfModule mod_ssl.c>
-    SSLEngine             on
-    SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
-    SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+    <VirtualHost _default_:443>
+        RedirectMatch permanent ^/$ /wims/
 
-    <FilesMatch "\.(cgi|shtml|phtml|php)$">
-        SSLOptions +StdEnvVars
-    </FilesMatch>
+        # You should problably change these values. By
+        # default, `/etc/ssl/certs/ssl-cert-snakeoil.pem` is
+        # a self signed certificate (signed via the private
+        # key `/etc/ssl/private/ssl-cert-snakeoil.key`) with
+        # the value of the command `hostname --fqdn` as
+        # "Subject Alternative Name". Of course, you can
+        # change the configuration above to use another (and
+        # not self signed) certificate.
+        SSLEngine             on
+        SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
+        SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 
-    <Directory /usr/lib/cgi-bin>
-        SSLOptions +StdEnvVars
-    </Directory>
+        <FilesMatch "\.(cgi|shtml|phtml|php)$">
+            SSLOptions +StdEnvVars
+        </FilesMatch>
+
+        <Directory /usr/lib/cgi-bin>
+            SSLOptions +StdEnvVars
+        </Directory>
+    </VirtualHost>
 </IfModule>
 ```
 
-Then to activate the configuration:
+Then, to activate the configuration:
 
 ```sh
 # Commands launched as root.
 
-a2enconf wims-custom
 a2enmod ssl
+a2ensite wims.conf
 service apache2 restart
 ```
-
-By default, `/etc/ssl/certs/ssl-cert-snakeoil.pem` is a self
-signed certificate (signed via the private key
-`/etc/ssl/private/ssl-cert-snakeoil.key`) with the value of
-the command `hostname --fqdn` as "Subject Alternative Name".
-Of course, you can change the configuration above to use
-another (and not self signed) certificate.
-
 
