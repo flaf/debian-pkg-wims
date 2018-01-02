@@ -1,12 +1,17 @@
+Source to build the Debian package `wims` from the uptream
+version available on
+[this page](https://sourcesup.renater.fr/frs/?group_id=379).
+
+
 # How to build the Wims Debian package from source
 
 
 ## Warnings
 
-* You have to build the package on **Debian Stretch**.
-* This package is supposed to work on **Debian Stretch**.
+* You have to build the package on **Debian Stretch amd64**.
+* This package is supposed to work on **Debian Stretch amd64**.
 * This package is very simple by design and absolutely **not Debian
-  policy compliant** (all is put in `/opt/wims/`).
+  policy compliant** (all files are put in `/opt/wims/`).
 
 
 ## Install the environment to build the package
@@ -36,25 +41,28 @@ ignore this package and I just use the package
 `wims_x.y-n_amd64.deb`.
 
 
-## How to install the package
+# How to install the package
 
 **Warning:** this package is supposed to work on **Debian
 Stretch amd64**.
 
 You have to put the package in a APT repository or you
-can you this APT repository: https://apt.ac-versailles.fr/
-(http protocol is possible too). Below I assume you use
+can use directly this APT repository: https://apt.ac-versailles.fr/
+(HTTP protocol is possible too). Below I assume you use
 the APT repository https://apt.ac-versailles.fr/. Here is
-the command to install the Wims server from a Debian Stretch:
+the commands to install the Wims server on Debian Stretch
+from this package:
 
 ```sh
+# Commands launched as root.
+
 # Required only if you use the APT repository via HTTPS.
 apt-get update && apt-get install apt-transport-https
 
-# Set the additional APT repository. If you prefer,
-# you can replace "https://" by "http://".
+# Set the additional APT repository.
+# If you prefer, you can replace "https://" by "http://".
 echo deb https://apt.ac-versailles.fr/ stretch main > /etc/apt/sources.list.d/wims.list
-wget http://apt.ac-versailles.fr/public-key.pgp -O - | apt-key add -
+wget https://apt.ac-versailles.fr/public-key.pgp -O - | apt-key add -
 
 # Installation of Wims.
 apt-get update && apt-get install wims
@@ -63,9 +71,10 @@ apt-get update && apt-get install wims
 Now, Wims is installed and you should be able to visit the
 page `http://IP-OF-YOUR-SERVER/wims/`.
 
-If you want to redirect the path `/` to `/wims/`, you can
-add the file `/etc/apache2/conf-available/wims-custom.conf`
-with this content:
+If you want to automatically redirect the path `/` to
+`/wims/`, you can add the file
+`/etc/apache2/conf-available/wims-custom.conf` with this
+content:
 
 ```apache
 RedirectMatch permanent ^/$ /wims/
@@ -74,6 +83,8 @@ RedirectMatch permanent ^/$ /wims/
 Then to activate the configuration:
 
 ```sh
+# Commands launched as root.
+
 a2enconf wims-custom
 service apache2 restart
 ```
@@ -102,6 +113,8 @@ RedirectMatch permanent ^/$ /wims/
 Then to activate the configuration:
 
 ```sh
+# Commands launched as root.
+
 a2enconf wims-custom
 a2enmod ssl
 service apache2 restart
@@ -110,8 +123,8 @@ service apache2 restart
 By default, `/etc/ssl/certs/ssl-cert-snakeoil.pem` is a self
 signed certificate (signed via the private key
 `/etc/ssl/private/ssl-cert-snakeoil.key`) with the value of
-`hostname --fqdn` as "Subject Alternative Name". Of course,
-you can change the configuration above to use another (and
-not self signed) certificate.
+the command `hostname --fqdn` as "Subject Alternative Name".
+Of course, you can change the configuration above to use
+another (and not self signed) certificate.
 
 
