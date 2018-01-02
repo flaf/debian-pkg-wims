@@ -82,7 +82,11 @@ If you want to automatically redirect the path `/` to
 </VirtualHost>
 ```
 
-Then, to activate the configuration:
+**Warning:** because there is no `ServerName` instruction,
+the file `wins.conf` should be the only enabled vhost in
+your Apache2 configuration.
+
+Then, for the configuration to take effect:
 
 ```sh
 # Commands launched as root.
@@ -132,7 +136,7 @@ But if you want to enable SSL, then you can edit the file
 </IfModule>
 ```
 
-Then, to activate the configuration:
+Then, for the configuration to take effect:
 
 ```sh
 # Commands launched as root.
