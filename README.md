@@ -49,7 +49,7 @@ Stretch amd64**.
 You have to put the package in a APT repository or you
 can use directly this APT repository: https://apt.ac-versailles.fr/
 (HTTP protocol is possible too). Below I assume you use
-the APT repository https://apt.ac-versailles.fr/. Here is
+the APT repository https://apt.ac-versailles.fr/. Here are
 the commands to install the Wims server on Debian Stretch
 from this package:
 
