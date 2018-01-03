@@ -86,7 +86,7 @@ If you want to automatically redirect the path `/` to
 the file `wims.conf` should be the only enabled vhost in
 your Apache2 configuration.
 
-Then, for the configuration to take effect:
+Then, so that the configuration can take effect, launch these commands:
 
 ```sh
 # Commands launched as root.
@@ -136,7 +136,7 @@ But if you want to enable SSL, then you can edit the file
 </IfModule>
 ```
 
-Then, for the configuration to take effect:
+Then, for the configuration to take effect, launch these commands:
 
 ```sh
 # Commands launched as root.
