@@ -83,7 +83,7 @@ If you want to automatically redirect the path `/` to
 ```
 
 **Warning:** because there is no `ServerName` instruction,
-the file `wins.conf` should be the only enabled vhost in
+the file `wims.conf` should be the only enabled vhost in
 your Apache2 configuration.
 
 Then, for the configuration to take effect:
