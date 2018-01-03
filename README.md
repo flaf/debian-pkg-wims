@@ -100,7 +100,7 @@ But if you want to enable SSL, then you can edit the file
 
 ```apache
 <VirtualHost *:80>
-    # Redirecton HTTP to HTTPS.
+    # Redirection HTTP to HTTPS.
     #
     # With SSL, you have to know the FQDN of your wims
     # server and you have to replace `FQDN-OF-YOUR-SERVER`
