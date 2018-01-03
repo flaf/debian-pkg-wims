@@ -119,7 +119,7 @@ But if you want to enable SSL, then you can edit the file
         # key `/etc/ssl/private/ssl-cert-snakeoil.key`) with
         # the value of the command `hostname --fqdn` as
         # "Subject Alternative Name". Of course, you can
-        # change the configuration above to use another (and
+        # change the configuration below to use another (and
         # not self signed) certificate.
         SSLEngine             on
         SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
