@@ -2,7 +2,7 @@ Index: workdir/compile
 ===================================================================
 --- workdir.orig/compile
 +++ workdir/compile
-@@ -148,62 +148,62 @@ if [ -f ../.wims_maintainer_mode ]; then
+@@ -183,62 +183,62 @@ if [ -f ../.wims_maintainer_mode ]; then
  fi
  cd ..
  
